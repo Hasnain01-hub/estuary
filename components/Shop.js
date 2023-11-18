@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import React, { useMemo } from "react";
 import { Pagination } from "antd";
 import { Skeleton } from "antd";
-import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
 //import getScrollAnimation from "../utils/getScrollAnimation";
 import Link from "next/link";
 const Shop = () => {

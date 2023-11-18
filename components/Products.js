@@ -1,7 +1,7 @@
 import "remixicon/fonts/remixicon.css";
 import { motion } from "framer-motion";
 import React, { useMemo } from "react";
-import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import Link from "next/link";
 import { DeleteOutlined } from "@ant-design/icons";
