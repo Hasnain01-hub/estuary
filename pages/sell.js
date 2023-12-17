@@ -1,4 +1,4 @@
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layout/Layout";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import change_way from "../components/asset/change-way.jpg";
@@ -7,12 +7,10 @@ import fees_table from "../components/asset/fees_table.png";
 import { Link, Element, scroller } from "react-scroll";
 import React, { useEffect, useState } from "react";
 import customize from "../public/assets/Icon/customize.png";
-// import list_with_ease from "../public/videos/list-with-ease.mp4";
-// import shoecollection from "../public/assets/Icon/shoecollection.png";
 import SeoHead from "../components/SeoHead";
 import list from "../public/assets/Icon/list.png";
 import subscribe from "../public/assets/Icon/subscribe.png";
-// import Link from "next/link";
+
 const About = () => {
   const { user } = useSelector((state) => state.user);
   const handleredirect = (e) => {
@@ -74,18 +72,6 @@ const About = () => {
                   className=" cursor-pointer inline-flex items-center text-white-500 bg-maincolor hover:bg-scolor focus:ring-4 focus:ring-scolor font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
                 >
                   Get started
-                  {/* <svg
-                    className="ml-2 -mr-1 w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg> */}
                 </span>
               </div>
             </div>
@@ -193,21 +179,7 @@ const About = () => {
               </div>
             </div>
           </section>
-          {/* <div className="text-center ">
-            <h1 className="text-2xl lg:text-3xl xl:text-3xl font-medium text-black-600 leading-normal smpadding">
-              <strong>Changing the way you sell online</strong>
-            </h1>
-            <h5 className=" pt-3 mb-3 sm:mb-1 text-black-600 text-sm sm:text-xl lg:text-xl leading-relaxed font-medium smpadding responsivesub">
-              Instead of losing nearly 20% of your sneaker's value to
-              marketplace fees on other platforms, you can now gain the same
-              exposure on Estuary and earn the profits you deserve.
-            </h5>
-          </div> */}
-          {/* <div className="grpimage">
-            <Image className="img1 sellimg" src={manwithshoe} />
-            <Image className="img2 sellimg" src={esturayshoe} />
-            <Image className="img3 sellimg" src={shoecollection} />
-          </div> */}
+
           <h2 className=" text-center mb-4 text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white">
             Start Selling in 3 Easy Steps
           </h2>

@@ -4,15 +4,13 @@ import "react-toastify/dist/ReactToastify.css";
 import React, { use, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { Carousel } from "react-responsive-carousel";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-//import 'react-responsive-modal/styles.css';
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import Link from "next/link";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Rate } from "antd";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import SeoHead from "../../components/SeoHead";
@@ -956,7 +954,7 @@ const ProductDetail = ({ pdata }) => {
                 {similar_brand.length > 0 &&
                   similar_brand.map((p) => {
                     return (
-                      <a href={`/product/${p._id}`} className="cursor-pointer">
+                      <a href={`/Product/${p._id}`} className="cursor-pointer">
                         <div
                           key={p._id}
                           style={{

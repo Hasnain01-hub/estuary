@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../components/asset/esturay-logo.png";
 import SeoHead from "../components/SeoHead";
 import Link from "next/link";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layout/Layout";
 import firebase from "firebase/compat/app";
 import { GoogleOutlined, MailOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
@@ -48,7 +48,8 @@ const Login = () => {
                     street: obj?.street,
                     role: obj.role,
                     date: obj.date,
-                    url: "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
+                    url:
+                      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
                   })
                 );
               });
@@ -208,6 +209,24 @@ const Login = () => {
                   name="password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                {/* forget */}
+                <Link href="/forgetPassword">
+                  <div
+                    style={{
+                      width: "100%",
+                    }}
+                  >
+                    <p
+                      style={{
+                        float: "right",
+                        fontWeight: "500",
+                        fontSize: "12px",
+                      }}
+                    >
+                      Forget password?
+                    </p>
+                  </div>
+                </Link>
                 <button
                   style={{
                     cursor: "pointer",

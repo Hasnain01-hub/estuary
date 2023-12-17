@@ -1,6 +1,6 @@
 import { Pagination } from "antd";
 import React from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import { Skeleton } from "antd";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -87,7 +87,7 @@ const buyedproducts = () => {
   }, [user, buyedpage]);
   return (
     <>
-    <SeoHead title="Buyed" />
+      <SeoHead title="Buyed" />
       <Layout>
         <div className=" py-20 lg:py-24">
           <div className="containerwidth mx-auto px-4">

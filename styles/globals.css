@@ -179,7 +179,9 @@ body .btn-three.rev a:hover {
   transition: transform 0.8s ease;
   transform: scale(1);
 } */
-
+.abt-video {
+  width: 100%;
+}
 .video-container.playing {
   transform: scale(1); /* Adjust the scale factor as needed */
 }
@@ -289,6 +291,12 @@ video {
   width: 55px;
 }
 @media only screen and (max-width: 425px) {
+  .select-width {
+    width: 80%;
+  }
+  .abt-video {
+    width: 80%;
+  }
   .image-btn {
     height: 45px;
     margin: 0px auto;
@@ -432,6 +440,9 @@ main {
 .cardmain .card__body .image {
   padding-top: 15px;
   width: 100%;
+}
+.anticon svg {
+  vertical-align: baseline;
 }
 /* :where(.css-dev-only-do-not-override-1m62vyb).ant-checkbox
   + span */
@@ -668,11 +679,14 @@ main {
 @media (max-width: 1020px) {
   .hide {
     display: none;
-    height: 100vh;
+    /* height: 100vh; */
   }
 }
 
 @media (max-width: 530px) {
+  .containerlogin {
+    width: 326px;
+  }
   .analytics {
     grid-gap: 0.5rem;
     grid-template-columns: 1fr !important;

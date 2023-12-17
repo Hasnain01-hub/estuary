@@ -1,9 +1,8 @@
-import Image from "next/image";
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
-import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
-// import Image from "next/image";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+
 const features = [
   "Estuary Verification",
   "Attractive Pricing",

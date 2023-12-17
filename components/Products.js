@@ -1,7 +1,7 @@
 import "remixicon/fonts/remixicon.css";
 import { motion } from "framer-motion";
 import React, { useMemo } from "react";
-import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import Link from "next/link";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -510,7 +510,7 @@ const Products = () => {
                         .map((item) => {
                           return (
                             <>
-                              <Link href={`/product/${item._id}`}>
+                              <Link href={`/Product/${item._id}`}>
                                 <div
                                   key={item._id}
                                   data-aos="fade-up"

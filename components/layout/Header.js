@@ -158,7 +158,7 @@ const Header = () => {
               <Link
                 activeClass="active"
                 // to="testimoni"
-                href="/profile/inventory"
+                href="profile/dashboard"
                 spy={true}
                 smooth={true}
                 duration={1000}
@@ -278,7 +278,7 @@ const Header = () => {
                   aria-labelledby="menu-button"
                   tabindex="-1"
                 >
-                  <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                  <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                     <div className="capitalize">
                       {(user && user.name) || "John"}&nbsp;
                       {(user && user.lastname) || ""}
@@ -308,14 +308,14 @@ const Header = () => {
                         Admin
                       </Link>
                     )}
-                    {user && user.email && (
+                    {/* {user && user.email && (
                       <Link
                         href="/profile/order"
                         className=" block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
                       >
                         Orders
                       </Link>
-                    )}
+                    )} */}
                     <Link
                       href="/help"
                       className="mobile-show px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
@@ -529,7 +529,7 @@ const Header = () => {
             {user && user.email ? (
               <Link
                 activeClass="active"
-                href="/profile/inventory"
+                href="profile/dashboard"
                 spy={true}
                 smooth={true}
                 duration={1000}

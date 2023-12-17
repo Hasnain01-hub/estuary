@@ -63,7 +63,7 @@ a {
   text-align: center;
 }
 
-input {
+input:not(.ant-select-selection-search-input) {
   background-color: aliceblue;
   border: 1px solid aliceblue;
 

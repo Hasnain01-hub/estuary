@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react";
 import UpperButton from "../../components/sidebar/Button.js";
 import Sidebar from "../../components/sidebar/Sidebar.js";
 import { Checkbox, Divider } from "antd";
-import Layout from "../../components/layout/Layout.js";
+import Layout from "../../components/Layout/Layout.js";
 import axios from "axios";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { set } from "lodash";
@@ -34,9 +36,9 @@ const Mail = () => {
       .then((res) => {
         if (res.data.length > 0) {
           if (page == 1) {
-            setmails(res.data.slice(0, 15));
+            setmails(res.data.slice(0, 8));
           } else {
-            setmails(res.data.slice((page - 1) * 15, page * 15));
+            setmails(res.data.slice((page - 1) * 8, page * 8));
           }
           setdupmail(res.data);
           setcount(res.data.length);
@@ -97,7 +99,7 @@ const Mail = () => {
   };
   return (
     <>
-      <SeoHead title="Mail" />
+      <SeoHead title="Notifications" />
       <Layout>
         <div className="w-full py-20 lg:py-24">
           <UpperButton setOpen={setOpen} open={open} />
@@ -165,7 +167,6 @@ const Mail = () => {
                               setmails(dupmail);
                             }}
                           ></i>
-
                           <button
                             type="submit"
                             style={{
@@ -184,7 +185,16 @@ const Mail = () => {
                       <div>
                         {!loading ? (
                           <div className="flex items-center justify-center w-full h-screen">
-                            <div className="w-16 h-16 border-b-4 border-gray-900 rounded-full animate-spin"></div>
+                            <Spin
+                              indicator={
+                                <LoadingOutlined
+                                  style={{
+                                    fontSize: 50,
+                                  }}
+                                  spin
+                                />
+                              }
+                            />
                           </div>
                         ) : (
                           <table className="min-w-full">
@@ -302,7 +312,7 @@ const Mail = () => {
                               <Pagination
                                 current={page}
                                 onChange={(page) => setPage(page)}
-                                total={Math.floor((count / 15) * 10)}
+                                total={Math.floor((count / 8) * 10)}
                               />
                             </tbody>
                           </table>

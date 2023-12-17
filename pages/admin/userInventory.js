@@ -1,7 +1,7 @@
 import { Pagination } from "antd";
 import "remixicon/fonts/remixicon.css";
 import React from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Popover } from "antd";
@@ -259,7 +259,7 @@ const UserInventory = () => {
                               <td className="p-2 whitespace-nowrap">
                                 <div className="text-left">{ind + 1}</div>
                               </td>
-                              <Link href={`/product/${p._id}`}>
+                              <Link href={`/Product/${p._id}`}>
                                 <td className="p-2 whitespace-nowrap">
                                   <div className="flex items-center">
                                     <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">

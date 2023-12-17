@@ -110,16 +110,6 @@ const CartPage = (props) => {
         role="dialog"
         aria-modal="true"
       >
-        {/* <!--
-    Background backdrop, show/hide based on slide-over state.
-
-    Entering: "ease-in-out duration-500"
-      From: "opacity-0"
-      To: "opacity-100"
-    Leaving: "ease-in-out duration-500"
-      From: "opacity-100"
-      To: "opacity-0"
-  --> */}
         <div
           style={{ backgorund: props.clickcart ? "grey" : "" }}
           className="fixed inset-0  bg-opacity-75 transition-opacity"
@@ -140,16 +130,6 @@ const CartPage = (props) => {
                 }}
                 className="pointer-events-none fixed  right-0 flex max-w-full pl-10"
               >
-                {/* <!--
-          Slide-over panel, show/hide based on slide-over state.
-
-          Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-            From: "translate-x-full"
-            To: "translate-x-0"
-          Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-            From: "translate-x-0"
-            To: "translate-x-full"
-        --> */}
                 <div className="pointer-events-auto w-screen max-w-md">
                   <div
                     style={{ background: "white", borderRadius: "10px" }}

@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar.js";
 import { Pagination } from "antd";
 // import "remixicon/fonts/remixicon.css";
 // import React, { use } from "react";
-import Layout from "../../components/layout/Layout.js";
+import Layout from "../../components/Layout/Layout.js";
 import { useSelector } from "react-redux";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -782,7 +782,10 @@ const Inventory = () => {
                             placeholder="     Search..."
                           />
                           <i
-                            style={{ fontSize: "20px" }}
+                            style={{
+                              fontSize: "20px",
+                              display: search.length <= 0 ? "none" : "",
+                            }}
                             className="ri-close-fill absolute right-24 top-2 text-gray-400 hover:text-gray-500 cursor-pointer"
                             onClick={(e) => {
                               e.preventDefault();
@@ -1080,7 +1083,7 @@ const Inventory = () => {
                                       {/* <td className="p-2 whitespace-nowrap">
                                 <div className="text-left">{ind + 1}</div>
                               </td> */}
-                                      <Link href={`/product/${p._id}`}>
+                                      <Link href={`/Product/${p._id}`}>
                                         <td className="p-2 whitespace-nowrap">
                                           <div className="flex items-center">
                                             <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">

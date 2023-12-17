@@ -3,7 +3,7 @@ import { Popover } from "antd";
 import { Button, Modal } from "antd";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import SeoHead from "../../components/SeoHead";
@@ -156,7 +156,6 @@ const Addsneaker = () => {
     }
 
     if (user) {
-      //https://sneaker-api-phi.vercel.app
       const data = {
         name: sneaker.name,
         sku: sneaker?.sku,
@@ -214,25 +213,6 @@ const Addsneaker = () => {
         <div className="py-20 lg:py-24">
           <div className="cardui">
             <form onSubmit={handleadd}>
-              {/* <div className="relative z-0 w-full mb-6 group">
-                <input
-                  type="text"
-                  style={{ borderRadius: "0px", color: "white" }}
-                  name="name"
-                  id="floating_email"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  value={sneaker.name}
-                  onChange={onChange}
-                  required
-                />
-                <label
-                  for="floating_email"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Name
-                </label>
-              </div> */}
               <div className="grid md:grid-cols-2 md:gap-6">
                 <div className="relative z-0 w-full mb-6 group">
                   <input
@@ -273,126 +253,8 @@ const Addsneaker = () => {
                   </label>
                 </div>
               </div>
-              {/* <div className="grid md:grid-cols-3 md:gap-6">
-                <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="text"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    name="country"
-                    id="floating_last_name"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker?.country}
-                    required
-                  />
-                  <label
-                    for="floating_last_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Country
-                  </label>
-                </div>
-                <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="text"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    name="state"
-                    id="floating_last_name"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker?.state}
-                    required
-                  />
-                  <label
-                    for="floating_last_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    State
-                  </label>
-                </div>
-                <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="text"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    name="city"
-                    id="floating_last_name"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker?.city}
-                    required
-                  />
-                  <label
-                    for="floating_last_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    City
-                  </label>
-                </div>
-              </div> */}
-              {/* <div className="grid md:grid-cols-2 md:gap-6">
-                <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="text"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    name="street"
-                    id="floating_last_name"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker?.street}
-                    required
-                  />
-                  <label
-                    for="floating_last_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Street
-                  </label>
-                </div>
-                <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="text"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    name="postalCode"
-                    id="floating_last_name"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker?.postalCode}
-                    required
-                  />
-                  <label
-                    for="floating_last_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Postal Code
-                  </label>
-                </div>
-              </div> */}
+
               <div className="grid md:grid-cols-2 md:gap-6">
-                {/* <div className="relative z-0 w-full mb-6 group">
-                  <input
-                    onChange={onChange}
-                    type="tel"
-                    style={{ borderRadius: "0px", color: "white" }}
-                    // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    name="phone"
-                    id="floating_phone"
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    value={sneaker.phone}
-                    required
-                  />
-                  <label
-                    for="floating_first_name"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-100 peer-focus:dark:text-orange-100 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Phone
-                  </label>
-                </div> */}
                 <div className="relative z-0 w-full mb-6 group">
                   <input
                     onChange={onChange}
@@ -664,7 +526,6 @@ const Addsneaker = () => {
                               ? "red"
                               : "green",
                         }}
-                        //className="text-lg text-center"
                       >
                         {Math.round(
                           pro_data?.discount_price * 0.94 - pro_data?.purchase

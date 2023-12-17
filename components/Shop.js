@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import React, { useMemo } from "react";
 import { Pagination } from "antd";
 import { Skeleton } from "antd";
-import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 //import getScrollAnimation from "../utils/getScrollAnimation";
 import Link from "next/link";
 const Shop = () => {
@@ -85,7 +85,7 @@ const Shop = () => {
                   senakers.map((item) => {
                     return (
                       <>
-                        <Link href={`/product/${item._id}`}>
+                        <Link href={`/Product/${item._id}`}>
                           <motion.div
                             key={item._id}
                             data-aos="fade-up"

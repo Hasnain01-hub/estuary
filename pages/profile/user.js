@@ -6,7 +6,7 @@ import { db } from "../../utils/Firebase";
 import { loginSuccess } from "../../reducer";
 // import "remixicon/fonts/remixicon.css";
 import { useSelector } from "react-redux";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 
 import Link from "next/link";
 
@@ -62,9 +62,12 @@ const User = ({ data }) => {
   const handleRedirect = async (user) => {
     if (user && !user?.stripe_id) {
       if (data && data?.account?.id) {
-        await db.collection("users").doc(user.email).update({
-          stripe_id: data?.account?.id,
-        });
+        await db
+          .collection("users")
+          .doc(user.email)
+          .update({
+            stripe_id: data?.account?.id,
+          });
         dispatch(
           loginSuccess({
             name: user.name,
@@ -139,8 +142,6 @@ const User = ({ data }) => {
             <div className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
               <div className="container mx-auto">
                 <div>
-                  {/* <div className="w-full text-white bg-main-color"></div> */}
-
                   <div className="container mx-auto my-5 p-5">
                     <div className="md:flex no-wrap md:-mx-2 ">
                       <div className="w-full md:w-3/12 md:mx-2">

@@ -1,6 +1,6 @@
 import { Pagination } from "antd";
 import React from "react";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import { Skeleton } from "antd";
 import Link from "next/link";
 import axios from "axios";

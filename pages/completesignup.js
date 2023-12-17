@@ -2,7 +2,7 @@ import React from "react";
 import animation from "../components/asset/login-illustration.gif";
 import Image from "next/image";
 import logo from "../components/asset/esturay-logo.png";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layout/Layout";
 import { useRouter } from "next/router";
 import { auth, db } from "../utils/Firebase";
 import { toast, ToastContainer } from "react-toastify";

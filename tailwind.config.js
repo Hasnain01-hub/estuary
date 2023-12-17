@@ -54,6 +54,7 @@ module.exports = {
         500: "#DDDDDD",
         700: "#555555",
       },
+      card: "#eeeff2",
     },
     extend: {},
   },

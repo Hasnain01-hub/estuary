@@ -3,7 +3,7 @@ import Image from "next/image";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
-import ScrollAnimationWrapper from "./layout/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import esturay from "./asset/esturay.jpeg";
 import Link from "next/link";
 const Hero = ({

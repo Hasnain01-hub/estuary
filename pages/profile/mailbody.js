@@ -1,9 +1,11 @@
 import axios from "axios";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import UpperButton from "../../components/sidebar/Button";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import Link from "next/link";
 import SeoHead from "../../components/SeoHead";
 
@@ -43,12 +45,21 @@ const Mailbody = () => {
               <div className="container mx-auto">
                 {!loading ? (
                   <div className="flex items-center justify-center w-full h-screen">
-                    <div className="w-16 h-16 border-b-4 border-gray-900 rounded-full animate-spin"></div>
+                    <Spin
+                      indicator={
+                        <LoadingOutlined
+                          style={{
+                            fontSize: 50,
+                          }}
+                          spin
+                        />
+                      }
+                    />
                   </div>
                 ) : (
                   <div>
                     <div>
-                      <Link href="/profile/mail">
+                      <Link href="/profile/notifications">
                         <svg
                           className=" w-8 m-2 cursor-pointer"
                           xmlns="http://www.w3.org/2000/svg"

@@ -1,12 +1,22 @@
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layout/Layout";
 import Image from "next/image";
 import React from "react";
 import shoe from "../public/assets/Icon/shoeverified.png";
 import SeoHead from "../components/SeoHead";
 import abtshoe from "../public/assets/Icon/abtshoe.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import money from "../public/assets/Icon/money.png";
 import store from "../public/assets/Icon/store.png";
 const About = () => {
+  React.useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+    });
+  }, []);
+
   return (
     <>
       <SeoHead title="About" />
@@ -20,6 +30,28 @@ const About = () => {
               Our goal is to create more affordable ways to obtain exclusive
               items
             </h5>
+          </div>
+          <div
+            style={{
+              // height: "350px",
+              maxWidth: "500px",
+              width: "auto",
+            }}
+            className="mx-auto mt-4"
+          >
+            <video
+              className="abt-video mx-auto"
+              style={{
+                borderRadius: "5px",
+              }}
+              src={"/videos/about-asset.mp4"}
+              // autoPlay
+              controls
+              loop
+              type="video/mp4"
+              // onPlay={handleVideoPlay}
+              // onPause={handleVideoPause}
+            />
           </div>
           {/* <div
             style={{
@@ -44,7 +76,7 @@ const About = () => {
               </h5>
               <div className="abtstory">
                 <div className="abtimage">
-                  <Image src={abtshoe} className="abtimg" />
+                  <Image alt="about" src={abtshoe} className="abtimg" />
                 </div>
                 <div>
                   <p className="font-para text-gray-700 dark:text-gray-400 abtpara">
@@ -76,7 +108,7 @@ const About = () => {
           </div>
           <div className="aboutrow max-w-screen-xl mx-auto mb-10">
             <div>
-              <Image src={shoe} className="aboutimg" />
+              <Image alt="about" src={shoe} className="aboutimg" />
               <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                 Estuary Verification
               </h5>
@@ -87,7 +119,7 @@ const About = () => {
               </p>
             </div>
             <div>
-              <Image src={store} className="aboutimg" />
+              <Image alt="about" src={store} className="aboutimg" />
               <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                 Attractive Pricing
               </h5>
@@ -98,7 +130,7 @@ const About = () => {
               </p>
             </div>
             <div>
-              <Image src={money} className="aboutimg" />
+              <Image alt="about" src={money} className="aboutimg" />
               <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                 A Marketplace for Everyone
               </h5>
@@ -121,14 +153,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     Shop
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     Search our shop for the sneakers you want
                   </p>
                 </div>
@@ -136,14 +161,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     Save
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     Purchase your sneakers for the most affordable price on the
                     market!
                   </p>
@@ -152,14 +170,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     Wear
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     Rock your kicks, and turn heads with your new purchase
                   </p>
                 </div>
@@ -172,14 +183,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     Subscribe
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     Choose the subscription plan that works best for you!
                   </p>
                 </div>
@@ -187,14 +191,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     Customize
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     Customize your seller profile and payout method!
                   </p>
                 </div>
@@ -202,14 +199,7 @@ const About = () => {
                   <h5 className="text-center text-1xl lg:text-2xl xl:text-2xl font-medium text-black-600 leading-normal">
                     List
                   </h5>
-                  <p
-                    // style={{
-                    //   width: "50%",
-                    //   fontSize: "15px",
-                    //   textAlign: "center",
-                    // }}
-                    className="font-para   text-gray-700 dark:text-gray-400 para text-center"
-                  >
+                  <p className="font-para   text-gray-700 dark:text-gray-400 para text-center">
                     List your sneakers, and we'll guarantee the best prices on
                     the market!
                   </p>
