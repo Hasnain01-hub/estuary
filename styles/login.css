@@ -63,10 +63,9 @@ a {
   text-align: center;
 }
 
-input:not(.ant-select-selection-search-input) {
+input[type="search"] {
   background-color: aliceblue;
   border: 1px solid aliceblue;
-
   border-radius: 20px;
   padding: 12px 15px !important;
   margin: 8px 0 !important;

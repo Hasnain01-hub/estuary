@@ -158,7 +158,7 @@ const Header = () => {
               <Link
                 activeClass="active"
                 // to="testimoni"
-                href="profile/dashboard"
+                href="/profile/dashboard"
                 spy={true}
                 smooth={true}
                 duration={1000}
@@ -529,7 +529,7 @@ const Header = () => {
             {user && user.email ? (
               <Link
                 activeClass="active"
-                href="profile/dashboard"
+                href="/profile/dashboard"
                 spy={true}
                 smooth={true}
                 duration={1000}

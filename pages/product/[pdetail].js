@@ -3,7 +3,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { use, useEffect } from "react";
 import { useSelector } from "react-redux";
-// import { Carousel } from "react-responsive-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import Link from "next/link";
@@ -24,7 +23,6 @@ import { Collapse, Select } from "antd";
 
 import _, { max, set } from "lodash";
 import { useDispatch } from "react-redux";
-import { db } from "../../utils/Firebase";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const { Option } = Select;
@@ -70,8 +68,6 @@ const ProductDetail = ({ pdata }) => {
     },
   };
 
-  const [analytstype, setanalytstype] = React.useState("");
-  //const [avgrate, setavgrate] = React.useState(0);
   const [totalcount, setTotalcount] = React.useState(0);
   const [totalStars, settotalStars] = React.useState({
     1: 0,
@@ -115,70 +111,66 @@ const ProductDetail = ({ pdata }) => {
       toast.success("Added to cart");
     }
   };
-  const [totalanalyst, settotalanalyst] = React.useState({
-    buy: 0,
-    sell: 0,
-    hold: 0,
-    total: 0,
-  });
-  React.useEffect(() => {
-    if (pm_data[0].analytics && pm_data[0].analytics.length > 0) {
-      pm_data[0].analytics.map((e) => {
-        if (e.type == "buy") {
-          settotalanalyst((prev) => ({
-            ...prev,
-            buy: prev.buy + 1,
-            total: prev.total + 1,
-          }));
-        } else if (e.type == "sell") {
-          settotalanalyst((prev) => ({
-            ...prev,
-            sell: prev.sell + 1,
-            total: prev.total + 1,
-          }));
-        } else if (e.type == "hold") {
-          settotalanalyst((prev) => ({
-            ...prev,
-            hold: prev.hold + 1,
-            total: prev.total + 1,
-          }));
-        }
-      });
-      if (user && user.email) {
-        pm_data[0].analytics.map((e) => {
-          if (e.email == user.email) {
-            setanalytstype(e.type);
-            return;
-          }
-        });
-      }
-    }
+  //usestate for vote
+  // const [analytstype, setanalytstype] = React.useState("");
+  // const [totalanalyst, settotalanalyst] = React.useState({
+  //   buy: 0,
+  //   sell: 0,
+  //   hold: 0,
+  //   total: 0,
+  // });
+  // React.useEffect(() => {
+  //   if (pm_data[0].analytics && pm_data[0].analytics.length > 0) {
+  //     pm_data[0].analytics.map((e) => {
+  //       if (e.type == "buy") {
+  //         settotalanalyst((prev) => ({
+  //           ...prev,
+  //           buy: prev.buy + 1,
+  //           total: prev.total + 1,
+  //         }));
+  //       } else if (e.type == "sell") {
+  //         settotalanalyst((prev) => ({
+  //           ...prev,
+  //           sell: prev.sell + 1,
+  //           total: prev.total + 1,
+  //         }));
+  //       } else if (e.type == "hold") {
+  //         settotalanalyst((prev) => ({
+  //           ...prev,
+  //           hold: prev.hold + 1,
+  //           total: prev.total + 1,
+  //         }));
+  //       }
+  //     });
+  //     //for user history vote set
+  //     if (user && user.email) {
+  //       pm_data[0].analytics.map((e) => {
+  //         if (e.email == user.email) {
+  //           setanalytstype(e.type);
+  //           return;
+  //         }
+  //       });
+  //     }
+  //   }
 
-    // return () => {
-    //   settotalanalyst({
-    //     buy: 0,
-    //     sell: 0,
-    //     hold: 0,
-    //     total: 0,
-    //   });
+  //   // return () => {
+  //   //   settotalanalyst({
+  //   //     buy: 0,
+  //   //     sell: 0,
+  //   //     hold: 0,
+  //   //     total: 0,
+  //   //   });
 
-    //   //setavgrate(0);
-    // };
-  }, [user, pm_data[0]]);
-  const getListed = async () => {
-    if (pm_data[0]?.email) {
-      await db
-        .collection("users")
-        .doc(pm_data[0]?.email)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            setListed(doc.data().isListed);
-          }
-        });
-    }
-  };
+  //   // };
+  // }, [user, pm_data[0]]);
   useEffect(() => {
+    if (user && user.email) {
+      setListed(user.isListed);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    //get similar products from same sku
     const getSimilar = async () => {
       if (pm_data[0].styleID) {
         await axios
@@ -198,10 +190,11 @@ const ProductDetail = ({ pdata }) => {
       }
     };
     getSimilar();
-    getListed();
+    // getListed();
   }, []);
 
   useEffect(() => {
+    //get similar products from same brand
     const getSimilarbrand = async () => {
       if (pm_data[0].styleID) {
         await axios
@@ -319,100 +312,105 @@ const ProductDetail = ({ pdata }) => {
     }
   };
   var analyst = pm_data[0].analytics;
-  const handevote = async (e, type) => {
-    e.preventDefault();
-    if (analyst === "undefined" || analyst === null || analyst.length == 0) {
-      analyst = [
-        {
-          type: type,
-          email: user.email,
-        },
-      ];
-      //axios
-      await axios
-        .post(
-          "https://sneaker-api-phi.vercel.app/updateanalytics",
-          {
-            id: pm_data[0]._id,
-            analyst: analyst,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .catch((err) => console.log(err));
-      setanalytstype(type);
-      settotalanalyst((prev) => ({
-        ...prev,
-        [type]: prev[type] + 1,
-        total: prev.total + 1,
-      }));
-      return;
-    } else {
-      analyst.map((e, idx) => {
-        if (e.email == user.email) {
-          analyst.splice(idx, 1);
-          settotalanalyst((prev) => ({
-            ...prev,
-            [e.type]: prev[e.type] - 1,
-            total: prev.total - 1,
-          }));
-        }
-      });
-      analyst.push({
-        type: type,
-        email: user.email,
-      });
-      //axios
-      await axios
-        .post(
-          "https://sneaker-api-phi.vercel.app/updateanalytics",
-          {
-            id: pm_data[0]._id,
-            analyst: analyst,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .catch((err) => console.log(err));
-      setanalytstype(type);
-      settotalanalyst((prev) => ({
-        ...prev,
-        [type]: prev[type] + 1,
-        total: prev.total + 1,
-      }));
-      return;
-    }
-  };
-  var conditionalData =
-    totalanalyst.total == 0
-      ? [1e-10, 1e-10, 1e-10]
-      : [totalanalyst.hold, totalanalyst.buy, totalanalyst.sell];
 
-  var data = {
-    labels: ["Hold", "Buy", "Sell"],
-    datasets: [
-      {
-        label: "# of rating",
-        data: conditionalData,
-        backgroundColor: ["#3E6BF7", "#003DF9", "#001968"],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
+  //onClick for vote
+  // const handevote = async (e, type) => {
+  //   e.preventDefault();
+  //   if (analyst === "undefined" || analyst === null || analyst.length == 0) {
+  //     analyst = [
+  //       {
+  //         type: type,
+  //         email: user.email,
+  //       },
+  //     ];
+  //     //axios
+  //     await axios
+  //       .post(
+  //         "https://sneaker-api-phi.vercel.app/updateanalytics",
+  //         {
+  //           id: pm_data[0]._id,
+  //           analyst: analyst,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       )
+  //       .catch((err) => console.log(err));
+  //     setanalytstype(type);
+  //     settotalanalyst((prev) => ({
+  //       ...prev,
+  //       [type]: prev[type] + 1,
+  //       total: prev.total + 1,
+  //     }));
+  //     return;
+  //   } else {
+  //     analyst.map((e, idx) => {
+  //       if (e.email == user.email) {
+  //         analyst.splice(idx, 1);
+  //         settotalanalyst((prev) => ({
+  //           ...prev,
+  //           [e.type]: prev[e.type] - 1,
+  //           total: prev.total - 1,
+  //         }));
+  //       }
+  //     });
+  //     analyst.push({
+  //       type: type,
+  //       email: user.email,
+  //     });
+  //     //axios
+  //     await axios
+  //       .post(
+  //         "https://sneaker-api-phi.vercel.app/updateanalytics",
+  //         {
+  //           id: pm_data[0]._id,
+  //           analyst: analyst,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       )
+  //       .catch((err) => console.log(err));
+  //     setanalytstype(type);
+  //     settotalanalyst((prev) => ({
+  //       ...prev,
+  //       [type]: prev[type] + 1,
+  //       total: prev.total + 1,
+  //     }));
+  //     return;
+  //   }
+  // };
+
+  //for pie chart if set zero then it will show 0% and 100% for all
+  // var conditionalData =
+  //   totalanalyst.total == 0
+  //     ? [1e-10, 1e-10, 1e-10]
+  //     : [totalanalyst.hold, totalanalyst.buy, totalanalyst.sell];
+
+  //pie chart data
+  // var data = {
+  //   labels: ["Hold", "Buy", "Sell"],
+  //   datasets: [
+  //     {
+  //       label: "# of rating",
+  //       data: conditionalData,
+  //       backgroundColor: ["#3E6BF7", "#003DF9", "#001968"],
+  //       borderColor: [
+  //         "rgba(255, 99, 132, 1)",
+  //         "rgba(54, 162, 235, 1)",
+  //         "rgba(255, 206, 86, 1)",
+  //       ],
+  //       borderWidth: 1,
+  //     },
+  //   ],
+  // };
   //3fr 3fr 1fr
-  var star = pm_data[0].rating;
   const handlestar = async (e, prev_rate) => {
+    var star = pm_data[0].rating;
     if (star === "undefined" || star === null || star.length == 0) {
       star = [
         {
@@ -438,10 +436,18 @@ const ProductDetail = ({ pdata }) => {
             },
           }
         )
+        .then(() => {
+          setpm_data((prev) => [
+            {
+              ...prev[0],
+              rating: star,
+            },
+          ]);
+        })
         .catch((err) => console.log(err));
       settotalrate((prev) => prev + 1);
       setrating(e);
-      //setavgrate((prev) => prev + e);
+
       //to show and list all the ratings eg: 5,4,3,2,1 individually
       // settotalrate((prev) => ({
       //   ...prev,
@@ -470,7 +476,7 @@ const ProductDetail = ({ pdata }) => {
         [prev_rate]: prev[prev_rate] - 1,
         [e]: prev[e] + 1,
       }));
-      //setavgrate((prev) => prev + e - prev_rate);
+
       star.push({
         rating: e,
         email: user.email,
@@ -492,7 +498,6 @@ const ProductDetail = ({ pdata }) => {
         .catch((err) => console.log(err));
       setrating(e);
 
-      //setavgrate((prev) => prev + e);
       // settotalanalyst((prev) => ({
       //   ...prev,
       //   [e]: prev[e] + 1,
@@ -548,7 +553,6 @@ const ProductDetail = ({ pdata }) => {
     totalStars[5];
   return (
     <>
-      {/* {console.log(totalStars[2], total_sum, avg_star)} */}
       <SeoHead title="Sneaker" />
       {pm_data && pm_data[0].brand ? (
         <Layout>
@@ -987,14 +991,7 @@ const ProductDetail = ({ pdata }) => {
                               <h1 className="text-gray-700 font-bold text-xl">
                                 ${Math.round(p.discount_price)}
                               </h1>
-                              <div>
-                                {/* <button
-                            onClick={(e) => showModal(e, p)}
-                            className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded"
-                          >
-                            view
-                          </button> */}
-                              </div>
+                              <div></div>
                             </div>
                           </div>
                         </div>
