@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Rate } from "antd";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import SeoHead from "../../components/SeoHead";

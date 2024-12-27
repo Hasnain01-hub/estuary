@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Modal } from "antd";
 import Link from "next/link";
-import Layout from "../../../../components/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 import "remixicon/fonts/remixicon.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

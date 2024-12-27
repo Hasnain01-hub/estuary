@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import Image from "next/image";
 import shoe from "../../components/asset/btn/shoe-btn.png";
 import barcode from "../../components/asset/btn/barcode-btn.png";

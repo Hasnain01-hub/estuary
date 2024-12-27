@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Dashboard from "../../components/Layout/Dashboard";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import UpperButton from "../../components/sidebar/Button";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useSelector } from "react-redux";

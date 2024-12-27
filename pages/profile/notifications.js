@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import UpperButton from "../../components/sidebar/Button.js";
 import Sidebar from "../../components/sidebar/Sidebar.js";
 import { Checkbox, Divider } from "antd";
-import Layout from "../../../components/layout/Layout.js";
+import Layout from "../../components/layout/Layout.js";
 import axios from "axios";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";

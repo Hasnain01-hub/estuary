@@ -6,7 +6,7 @@ import { db } from "../../utils/Firebase";
 import { loginSuccess } from "../../reducer";
 // import "remixicon/fonts/remixicon.css";
 import { useSelector } from "react-redux";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 
 import Link from "next/link";
 

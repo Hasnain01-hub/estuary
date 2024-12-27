@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { db } from "../../utils/Firebase";
