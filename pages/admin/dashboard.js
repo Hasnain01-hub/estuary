@@ -1,6 +1,6 @@
 import { Pagination } from "antd";
 import React from "react";
-import Layout from "../../../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import { Skeleton } from "antd";
 import axios from "axios";
 import { db } from "../../utils/Firebase";
