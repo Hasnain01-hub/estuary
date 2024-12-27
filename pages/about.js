@@ -1,4 +1,4 @@
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 import Image from "next/image";
 import React from "react";
 import shoe from "../public/assets/Icon/shoeverified.png";

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import UpperButton from "../../components/sidebar/Button";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/layout/Layout";
 import Link from "next/link";
 import SeoHead from "../../components/SeoHead";
 

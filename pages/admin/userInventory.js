@@ -1,7 +1,7 @@
 import { Pagination } from "antd";
 import "remixicon/fonts/remixicon.css";
 import React from "react";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../../components/layout/Layout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Popover } from "antd";

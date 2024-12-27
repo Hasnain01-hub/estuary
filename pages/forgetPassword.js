@@ -5,7 +5,7 @@ import { auth } from "../utils/Firebase";
 import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 
 const ForgetPassword = () => {
   const [email, setEmail] = React.useState("");

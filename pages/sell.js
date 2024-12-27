@@ -1,4 +1,4 @@
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import change_way from "../components/asset/change-way.jpg";

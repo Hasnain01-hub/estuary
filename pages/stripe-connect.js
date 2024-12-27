@@ -3,7 +3,7 @@ import "remixicon/fonts/remixicon.css";
 import { toast, ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { db } from "../utils/Firebase";

@@ -3,7 +3,7 @@ import { Popover } from "antd";
 import { Button, Modal } from "antd";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../../components/layout/Layout";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import SeoHead from "../../components/SeoHead";

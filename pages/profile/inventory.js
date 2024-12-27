@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar.js";
 import { Pagination } from "antd";
 // import "remixicon/fonts/remixicon.css";
 // import React, { use } from "react";
-import Layout from "../../components/Layout/Layout.js";
+import Layout from "../../../components/layout/Layout.js";
 import { useSelector } from "react-redux";
 import AOS from "aos";
 import "aos/dist/aos.css";

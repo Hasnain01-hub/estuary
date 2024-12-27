@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../components/asset/esturay-logo.png";
 import Link from "next/link";
 import SeoHead from "../components/SeoHead";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 import { MailOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import { auth, db } from "../utils/Firebase";

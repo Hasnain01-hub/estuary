@@ -1,7 +1,7 @@
 import About from "../components/About";
 import Pricing from "../components/Pricing";
 import Hero from "../components/Hero";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/Layout";
 
 import SeoHead from "../components/SeoHead";
 //import Products from "../components/Products";

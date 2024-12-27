@@ -5,7 +5,7 @@ import { Spin } from "antd";
 import { Popover } from "antd";
 import React from "react";
 import UpperButton from "../../components/sidebar/Button";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../../components/layout/Layout";
 import SeoHead from "../../components/SeoHead";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { toast, ToastContainer } from "react-toastify";
