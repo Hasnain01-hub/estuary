@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dashboard from "../../components/Layout/Dashboard";
+import Dashboard from "../../components/layout/Dashboard";
 import Layout from "../../components/layout/Layout";
 import UpperButton from "../../components/sidebar/Button";
 import Sidebar from "../../components/sidebar/Sidebar";
